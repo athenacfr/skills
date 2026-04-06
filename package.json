@@ -1,0 +1,8 @@
+{
+  "name": "skills",
+  "private": true,
+  "devDependencies": {
+    "lefthook": "latest",
+    "oxfmt": "latest"
+  }
+}

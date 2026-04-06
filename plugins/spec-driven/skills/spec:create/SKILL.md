@@ -12,9 +12,7 @@ metadata:
 Create feature specs and resolve gray areas. Zero ceremony.
 
 ```
-┌──────────────┐        ┌──────────────┐        ┌──────────┐
-│ /spec:create │ ─/compact─▸ │ /spec:design │ ─/compact─▸ │ /spec:run│
-└──────────────┘        └──────────────┘        └──────────┘
+  /spec:create  ─▸  /compact  ─▸  /spec:design  ─▸  /compact  ─▸  /spec:run
   specify + discuss        architecture           tasks + implement
   (this skill)             (if complex)            (always)
 ```
@@ -96,11 +94,13 @@ Create feature specs and resolve gray areas. Zero ceremony.
 ## Context Loading
 
 **Base load (~15k tokens):**
+
 - PROJECT.md (if exists)
 - ROADMAP.md (when planning/working on features)
 - STATE.md (persistent memory)
 
 **On-demand:**
+
 - Codebase docs (when working in existing project)
 - CONCERNS.md (when planning features that touch flagged areas)
 
@@ -127,5 +127,6 @@ Step 5: Flag as uncertain → never present as fact
 When the spec (and discuss, if needed) is complete, tell the user:
 
 > Spec complete. Run `/compact` to free up context, then:
+>
 > - **Complex/Large features:** `/spec:design <feature>` to plan architecture
 > - **Medium features:** `/spec:run <feature>` to break into tasks and implement

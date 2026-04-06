@@ -62,17 +62,18 @@ For small tasks (≤3 files, one-sentence scope): Describe → Implement → Ver
 
 Use sub-agents to keep the main context window lean and enable parallel execution.
 
-| Activity | Delegate? | Why |
-|---|---|---|
-| Implementing a task | Yes | File reads, edits, test output consume context; only the result matters |
-| Parallel `[P]` tasks | Yes (one per task) | The only way to actually run tasks in parallel |
-| Sequential tasks with no `[P]` | Yes | Keeps implementation artifacts out of the main context |
-| Validation reports | No | These require the full accumulated context to be coherent |
-| Quick mode tasks | No | Too small to justify the overhead |
+| Activity                       | Delegate?          | Why                                                                     |
+| ------------------------------ | ------------------ | ----------------------------------------------------------------------- |
+| Implementing a task            | Yes                | File reads, edits, test output consume context; only the result matters |
+| Parallel `[P]` tasks           | Yes (one per task) | The only way to actually run tasks in parallel                          |
+| Sequential tasks with no `[P]` | Yes                | Keeps implementation artifacts out of the main context                  |
+| Validation reports             | No                 | These require the full accumulated context to be coherent               |
+| Quick mode tasks               | No                 | Too small to justify the overhead                                       |
 
 **Context each sub-agent receives:**
 
 The orchestrating agent MUST provide each sub-agent with:
+
 - The specific task definition from tasks.md (What, Where, Depends on, Reuses, Done when, Tests, Gate)
 - Relevant coding principles and conventions (coding-principles.md, CONVENTIONS.md)
 - TESTING.md, if it exists (for gate check commands and test patterns)
@@ -83,6 +84,7 @@ The sub-agent does NOT receive: other tasks' definitions, accumulated chat histo
 **What sub-agents return:**
 
 Each sub-agent reports back:
+
 - Status: Complete | Blocked | Partial
 - Files changed: [list]
 - Gate check result: [pass/fail + test counts]
@@ -105,12 +107,12 @@ If `.specs/features/<spec-name>/tasks.md` doesn't exist yet, create it. See [tas
 
 ## Commands
 
-| Trigger Pattern | Reference |
-|----------------|-----------|
-| Break into tasks, create tasks | [tasks.md](references/tasks.md) |
-| Implement task, build, execute | [implement.md](references/implement.md) |
-| Validate, verify, test, UAT, walk me through it | [validate.md](references/validate.md) |
-| Quick fix, quick task, small change, bug fix | [quick-mode.md](references/quick-mode.md) |
+| Trigger Pattern                                 | Reference                                 |
+| ----------------------------------------------- | ----------------------------------------- |
+| Break into tasks, create tasks                  | [tasks.md](references/tasks.md)           |
+| Implement task, build, execute                  | [implement.md](references/implement.md)   |
+| Validate, verify, test, UAT, walk me through it | [validate.md](references/validate.md)     |
+| Quick fix, quick task, small change, bug fix    | [quick-mode.md](references/quick-mode.md) |
 
 ## Implementation Process
 

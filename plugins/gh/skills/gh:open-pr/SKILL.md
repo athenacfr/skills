@@ -37,6 +37,7 @@ Returns JSON with: `branch`, `upstream`, `base_branch`, `commit_log`, `diff_stat
    - **Body**: **ALWAYS** follow the repo's `.github/pull_request_template.md` if it exists. Read the template, fill in every section with relevant content from the commits and diff. Do NOT skip sections — if a section is not applicable, explicitly mark it as N/A. Only use the fallback format below if no PR template exists in the repo.
 
 Fallback body format (only when no PR template exists):
+
 ```
 ## Context
 [Why this change exists — explain the motivation/problem BEFORE describing the solution]
@@ -56,12 +57,14 @@ Fallback body format (only when no PR template exists):
 1. Present the draft title and body to the user
 2. Ask for approval or edits
 3. Once confirmed, create the PR:
+
    ```
    gh pr create --title "<title>" --body "$(cat <<'EOF'
    <body>
    EOF
    )"
    ```
+
    - Add `--base <branch>` if targeting a non-default branch
    - Add `--draft` if the user requests a draft PR
    - Add `--label`, `--reviewer`, `--assignee` flags if the user specifies them

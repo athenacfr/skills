@@ -38,6 +38,7 @@ Skills may include a `references/` subfolder with supplementary Markdown docs th
 Skills are folders — they can contain scripts alongside the SKILL.md. **Prefer Python scripts for deterministic operations** (parsing, formatting, data transformation, file manipulation, JSON processing) over having the LLM do it inline. Scripts run faster, cost zero tokens, and produce consistent results. Reserve LLM reasoning for judgment calls, synthesis, and creative decisions.
 
 Examples of what should be a script:
+
 - Parsing GraphQL/REST responses into structured data
 - Generating file paths or boilerplate from templates
 - Validating JSON schemas or config files

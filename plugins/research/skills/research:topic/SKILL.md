@@ -20,6 +20,7 @@ This skill spawns parallel research agents that each tackle a different angle of
 ### 1. Understand the Question
 
 Parse the user's research request and identify:
+
 - **Core question** — what specifically needs answering
 - **Angles** — 2-4 distinct research angles to explore in parallel
 - **Scope** — breadth vs depth preference
@@ -30,14 +31,15 @@ Launch **2-4 agents in parallel** using the Agent tool. Each agent gets a focuse
 
 **Standard research pattern** (adapt angles to the topic):
 
-| Agent | Focus | Subagent Type |
-|-------|-------|---------------|
-| Agent 1 | Core question — direct search for the primary answer | research:web-researcher |
-| Agent 2 | Context & background — history, ecosystem, alternatives | research:web-researcher |
-| Agent 3 | Technical details — specs, docs, APIs, implementation details | research:doc-analyst |
+| Agent   | Focus                                                                | Subagent Type           |
+| ------- | -------------------------------------------------------------------- | ----------------------- |
+| Agent 1 | Core question — direct search for the primary answer                 | research:web-researcher |
+| Agent 2 | Context & background — history, ecosystem, alternatives              | research:web-researcher |
+| Agent 3 | Technical details — specs, docs, APIs, implementation details        | research:doc-analyst    |
 | Agent 4 | Community perspective — discussions, opinions, real-world experience | research:web-researcher |
 
 **Each agent prompt MUST include:**
+
 - The specific sub-question to research
 - A reminder to be concise (under 500 words)
 
@@ -49,26 +51,32 @@ After all agents return, combine their findings into a single report:
 ## Research: [topic]
 
 ### Summary
+
 [2-3 sentence executive summary answering the core question]
 
 ### Key Findings
+
 - [Finding 1 — synthesized from multiple agents]
 - [Finding 2]
 - [Finding 3]
 
 ### Details
+
 [Organized narrative combining all agent findings, grouped by theme]
 
 ### Sources
+
 [Deduplicated list of all sources cited, numbered]
 
 ### Open Questions
+
 [What couldn't be answered, conflicting info, areas needing deeper research]
 ```
 
 ### 4. Offer Next Steps
 
 After presenting the report, offer:
+
 - "Want me to dig deeper into any of these findings?"
 - "Should I research [related topic] next?"
 - "Want me to switch to `/code-research` to find implementations?"

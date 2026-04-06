@@ -15,16 +15,17 @@ Find, clone, and explore relevant repositories to understand implementation patt
 
 Two query types, two paths:
 
-| Query Type | Example | Path |
-|-----------|---------|------|
-| **Discovery** — find repos for a topic | "find react state management libs" | Scout (script) → Select → Explore |
-| **Targeted** — explore a known repo/project | "how does vscode handle WSL server build" | Skip scout → Explore directly |
+| Query Type                                  | Example                                   | Path                              |
+| ------------------------------------------- | ----------------------------------------- | --------------------------------- |
+| **Discovery** — find repos for a topic      | "find react state management libs"        | Scout (script) → Select → Explore |
+| **Targeted** — explore a known repo/project | "how does vscode handle WSL server build" | Skip scout → Explore directly     |
 
 ## Workflow
 
 ### 1. Understand the Research Goal
 
 Parse the user's request and identify:
+
 - **Query type** — discovery (find repos) or targeted (explore known repo/project)
 - **What to find** — libraries, frameworks, implementations, patterns
 - **Why** — comparing options, learning patterns, finding reference implementations
@@ -47,6 +48,7 @@ Returns a JSON list with: `fullName`, `description`, `stargazersCount`, `updated
 ### 2b. Targeted Path: Resolve Repo
 
 The user is asking about a specific project. Resolve the repo:
+
 - If the user names it explicitly (e.g. "vscode", "next.js") → map to the GitHub URL (e.g. `microsoft/vscode`, `vercel/next.js`)
 - If ambiguous, run a quick search: `python "<path-to-skill>/scripts/search_repos.py" "project name" --min-stars 0` and pick the top match
 - Skip straight to **Step 4: Explore**
@@ -54,10 +56,12 @@ The user is asking about a specific project. Resolve the repo:
 ### 3. Evaluate & Select (discovery path only)
 
 From the script output:
+
 - Review the ranked list against the user's goal
 - **Select 1-3 repos** for deep exploration (ask user if unclear which to prioritize)
 
 Present a quick summary:
+
 ```
 Found [N] relevant repos. Top picks for deep dive:
 1. **owner/repo** (⭐ N) — [why relevant to user's question]
@@ -72,10 +76,12 @@ Cloning and exploring these now...
 Launch **parallel agents** (one per selected repo, `subagent_type: research:repo-explorer`) to clone and analyze:
 
 **Each agent prompt MUST include:**
+
 - The repo URL to clone to `/tmp/research-repos/[owner]-[repo]`
 - The specific aspects to investigate (architecture, patterns, how they handle X)
 
 **Example prompt:**
+
 ```
 Clone and analyze https://github.com/owner/repo to /tmp/research-repos/owner-repo
 
@@ -93,11 +99,13 @@ Combine all explorer findings:
 ## Code Research: [topic]
 
 ### Summary
+
 [What was found and the key takeaway]
 
 ### Repositories Analyzed
 
 #### 1. owner/repo
+
 - **URL**: https://github.com/owner/repo
 - **Stack**: [languages, frameworks]
 - **Architecture**: [pattern description]
@@ -105,20 +113,25 @@ Combine all explorer findings:
 - **Cloned to**: `/tmp/research-repos/owner-repo`
 
 #### 2. owner/repo
+
 ...
 
 ### Pattern Comparison
-| Aspect | repo-1 | repo-2 | repo-3 |
-|--------|--------|--------|--------|
-| Architecture | ... | ... | ... |
-| State mgmt | ... | ... | ... |
-| Testing | ... | ... | ... |
+
+| Aspect       | repo-1 | repo-2 | repo-3 |
+| ------------ | ------ | ------ | ------ |
+| Architecture | ...    | ...    | ...    |
+| State mgmt   | ...    | ...    | ...    |
+| Testing      | ...    | ...    | ...    |
 
 ### Recommendations
+
 [Which approach fits the user's needs and why]
 
 ### Cloned Repos
+
 All repos are available locally for further exploration:
+
 - `/tmp/research-repos/owner-repo1`
 - `/tmp/research-repos/owner-repo2`
 ```

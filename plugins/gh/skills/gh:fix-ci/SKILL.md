@@ -14,6 +14,7 @@ Debug and fix failing GitHub Actions checks with evidence-based diagnosis.
 ## Critical Rule: Diagnosis Before Edits
 
 **DO NOT edit any source files until you have:**
+
 1. Fetched and read the actual failure logs
 2. Identified the root cause with a specific log snippet as evidence
 3. Presented the diagnosis to the user and received confirmation
@@ -64,9 +65,11 @@ Present the diagnosis to the user in this format:
 - **Run URL**: [link]
 - **Root Cause**: [specific explanation]
 - **Evidence**:
-  ```
-  [exact log snippet showing the failure]
-  ```
+```
+
+[exact log snippet showing the failure]
+
+```
 - **Proposed Fix**: [what to change and why]
 ```
 
@@ -83,6 +86,7 @@ If there are multiple failing checks, diagnose each one separately.
 ### Phase 4: Verify
 
 After the fix is pushed:
+
 - `gh pr checks <pr>` to monitor the new run
 - If the fix fails, go back to Phase 1 — fetch the NEW logs, don't guess again
 
@@ -101,6 +105,7 @@ After the fix is pushed:
 Fetch failing PR checks, pull GitHub Actions logs, and extract a failure snippet. Exits non-zero when failures remain so it can be used in automation.
 
 Usage:
+
 - `python "<path-to-skill>/scripts/inspect_pr_checks.py" --repo "." --pr "123"`
 - `python "<path-to-skill>/scripts/inspect_pr_checks.py" --repo "." --pr "https://github.com/org/repo/pull/123" --json`
 - `python "<path-to-skill>/scripts/inspect_pr_checks.py" --repo "." --max-lines 200 --context 40`
