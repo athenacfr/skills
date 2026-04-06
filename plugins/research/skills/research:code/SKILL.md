@@ -13,66 +13,61 @@ Find, clone, and explore relevant repositories to understand implementation patt
 
 ## How It Works
 
-This skill runs in two phases:
-1. **Scout phase** — parallel agents search for relevant repos
-2. **Explore phase** — parallel agents clone and deeply analyze the best finds
+Two query types, two paths:
+
+| Query Type | Example | Path |
+|-----------|---------|------|
+| **Discovery** — find repos for a topic | "find react state management libs" | Scout (script) → Select → Explore |
+| **Targeted** — explore a known repo/project | "how does vscode handle WSL server build" | Skip scout → Explore directly |
 
 ## Workflow
 
 ### 1. Understand the Research Goal
 
 Parse the user's request and identify:
+- **Query type** — discovery (find repos) or targeted (explore known repo/project)
 - **What to find** — libraries, frameworks, implementations, patterns
 - **Why** — comparing options, learning patterns, finding reference implementations
 - **Constraints** — language, framework, license, activity level preferences
 
-### 2. Phase 1: Scout (Parallel)
+### 2a. Discovery Path: Scout
 
-Launch **2-3 agents in parallel** to find relevant repositories from different angles:
+Generate **2-3 search queries** from different angles, plus **1-2 GitHub topic slugs** (kebab-case tags like `state-management`, `orm`, `cli`), then run the bundled script:
 
-| Agent | Focus |
-|-------|-------|
-| Agent 1 | Direct search — repos matching the core query |
-| Agent 2 | Ecosystem search — related tools, alternatives, awesome-lists |
-| Agent 3 | Implementation examples — real-world usage, starter templates |
-
-**Each scout agent prompt MUST include:**
-- The specific search angle
-- Instruction to use WebSearch to find GitHub repos
-- Instruction to evaluate quality (stars, recent activity, docs)
-- Instruction to return a ranked list with URLs and reasons
-
-**Example scout prompt:**
 ```
-Search the web for GitHub repositories related to: [specific angle]
-
-For each repo found, note:
-- Full URL (https://github.com/owner/repo)
-- Star count and last commit date if visible
-- Why it's relevant
-- Language/framework
-
-Return your top 3-5 picks ranked by relevance. Be specific about WHY each is worth exploring.
+python "<path-to-skill>/scripts/search_repos.py" "query 1" "query 2" --topic topic-slug-1 --topic topic-slug-2
 ```
 
-### 3. Evaluate & Select
+Optional flags: `--limit 20`, `--language python`, `--min-stars 500`
 
-After scouts return:
-- Deduplicate repos found across agents
-- Rank by relevance to the user's goal
+Keyword queries match repo name/description. Topic searches find repos tagged with that topic (catches repos with creative names). Results are merged, deduped, and filtered to 100+ stars by default. Ordered by GitHub's relevance ranking.
+
+Returns a JSON list with: `fullName`, `description`, `stargazersCount`, `updatedAt`, `language`, `url`.
+
+### 2b. Targeted Path: Resolve Repo
+
+The user is asking about a specific project. Resolve the repo:
+- If the user names it explicitly (e.g. "vscode", "next.js") → map to the GitHub URL (e.g. `microsoft/vscode`, `vercel/next.js`)
+- If ambiguous, run a quick search: `python "<path-to-skill>/scripts/search_repos.py" "project name" --min-stars 0` and pick the top match
+- Skip straight to **Step 4: Explore**
+
+### 3. Evaluate & Select (discovery path only)
+
+From the script output:
+- Review the ranked list against the user's goal
 - **Select 1-3 repos** for deep exploration (ask user if unclear which to prioritize)
 
 Present a quick summary:
 ```
 Found [N] relevant repos. Top picks for deep dive:
-1. **owner/repo** — [why]
-2. **owner/repo** — [why]
-3. **owner/repo** — [why]
+1. **owner/repo** (⭐ N) — [why relevant to user's question]
+2. **owner/repo** (⭐ N) — [why]
+3. **owner/repo** (⭐ N) — [why]
 
 Cloning and exploring these now...
 ```
 
-### 4. Phase 2: Explore (Parallel)
+### 4. Explore (Parallel)
 
 Launch **parallel agents** (one per selected repo) to clone and analyze:
 
@@ -150,8 +145,8 @@ All repos are available locally for further exploration:
 
 ## Guidelines
 
-- **Two-phase approach** — always scout first, then explore. Don't clone blindly
-- **Parallel everything** — scouts run in parallel, explorers run in parallel
+- **Pick the right path** — discovery queries scout first, targeted queries go straight to explore
+- **Parallel explorers** — explorer agents run in parallel
 - **Shallow clones** — always `--depth 1` to save time and space
 - **Clone to `/tmp/research-repos/`** — consistent location, easy cleanup
 - **Ask before exploring more than 3 repos** — each clone costs time

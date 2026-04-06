@@ -20,35 +20,13 @@ If not authenticated, instruct the user to run `gh auth login`.
 
 ### Phase 1: Gather Context
 
-Run these in parallel:
+Run the bundled script to collect all context in one call:
 
-1. **Current branch & remote status**
-   ```
-   git branch --show-current
-   git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null
-   ```
+```
+python "<path-to-skill>/scripts/gather_pr_context.py"
+```
 
-2. **Detect base branch** — use the repo default:
-   ```
-   gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name'
-   ```
-
-3. **Commit history since divergence from base**
-   ```
-   git log --oneline <base>..HEAD
-   git diff <base>...HEAD --stat
-   ```
-
-4. **Check for uncommitted changes**
-   ```
-   git status --short
-   ```
-
-5. **Check for PR template** (MANDATORY)
-   ```
-   Look for .github/pull_request_template.md, .github/PULL_REQUEST_TEMPLATE.md,
-   or .github/PULL_REQUEST_TEMPLATE/ directory
-   ```
+Returns JSON with: `branch`, `upstream`, `base_branch`, `commit_log`, `diff_stat`, `uncommitted_changes`, and `pr_template` (if found).
 
 ### Phase 2: Prepare
 
