@@ -8,12 +8,11 @@ A Claude Code plugin marketplace containing three plugin groups: `gh`, `research
 plugins/
 ├── gh/                          # GitHub PR workflows
 │   ├── .claude-plugin/plugin.json
-│   ├── agents/code-simplifier.md
-│   ├── scripts/fetch_comments.py, inspect_pr_checks.py
+│   ├── scripts/fetch_comments.py, inspect_pr_checks.py, gather_pr_context.py
 │   └── skills/gh:fix-ci/, gh:address-comments/, gh:open-pr/
 ├── research/                    # Topic & code research
 │   ├── .claude-plugin/plugin.json
-│   ├── agents/web-researcher.md, doc-analyst.md, repo-scout.md, repo-explorer.md
+│   ├── scripts/search_repos.py
 │   └── skills/research:topic/, research:code/
 └── spec-driven/                 # Spec-driven development
     ├── .claude-plugin/plugin.json
@@ -25,7 +24,6 @@ Marketplace metadata: `.claude-plugin/marketplace.json` (root), per-plugin: `plu
 ### Naming Conventions
 
 - Skills live in `plugins/<group>/skills/<group>:<name>/SKILL.md` (colon-separated `group:name`)
-- Agents live in `plugins/<group>/agents/<name>.md`
 - Scripts live in `plugins/<group>/scripts/`
 - Reference docs live in `skills/<group>:<name>/references/*.md`
 
@@ -33,7 +31,7 @@ Marketplace metadata: `.claude-plugin/marketplace.json` (root), per-plugin: `plu
 
 Each skill is a folder with a `SKILL.md` containing YAML frontmatter (`name`, `description`, `license`, `metadata`) followed by Markdown instructions. The `description` field doubles as the trigger — it tells Claude Code when to invoke the skill.
 
-Skills may include a `references/` subfolder with supplementary Markdown docs that get loaded as context.
+Skills may include a `references/` subfolder with supplementary Markdown docs that get loaded as context. Skills use built-in Claude Code subagent types (`research:web-researcher`, `research:doc-analyst`, `research:repo-explorer`) — no custom agent definitions needed.
 
 ### Scripting Principle
 
@@ -50,7 +48,6 @@ Examples of what should be a script:
 - Keep SKILL.md focused on the workflow and decision-making logic
 - Use `references/` for static context the LLM needs (coding principles, validation checklists)
 - Trigger descriptions should be specific — list exact phrases the user might say
-- Agent definitions (`agents/*.md`) should specify `tools` and `model` in frontmatter
 
 ## Scripts
 
