@@ -73,25 +73,33 @@ Cloning and exploring these now...
 
 ### 4. Explore (Parallel)
 
-Launch **parallel agents** (one per selected repo, `subagent_type: general-purpose`) to clone, analyze, and research:
+For each selected repo, launch **two agents in parallel** — all repos' agents launch at the same time:
 
-**Each agent prompt MUST include:**
+| Agent      | Type                      | Purpose                                                        |
+| ---------- | ------------------------- | -------------------------------------------------------------- |
+| Explorer   | `research:repo-explorer`  | Clone repo, analyze structure, architecture, key files         |
+| Researcher | `research:web-researcher` | Search web for docs, blog posts, discussions about the project |
 
-- The repo URL to clone to `/tmp/research-repos/[owner]-[repo]`
-- The specific aspects to investigate (architecture, patterns, how they handle X)
-- Instruction to search the web for docs, blog posts, or discussions about the project
-
-**Example prompt:**
+**Explorer prompt:**
 
 ```
 Clone and analyze https://github.com/owner/repo to /tmp/research-repos/owner-repo
 
-1. Clone and explore the codebase: structure, stack, architecture, key files
-2. Search the web for official docs, blog posts, or discussions about this project
-3. Focus on: [specific aspect user cares about]
+Focus on: [specific aspect user cares about]
 
-Return: purpose, stack, directory layout, architecture pattern, key files, notable techniques, and any relevant context from docs/web.
+Return: purpose, stack, directory layout, architecture pattern, key files, notable techniques.
 Keep under 600 words.
+```
+
+**Researcher prompt:**
+
+```
+Research https://github.com/owner/repo — find official docs, blog posts, architecture discussions, and design decisions.
+
+Focus on: [specific aspect user cares about]
+
+Return: key documentation links, design rationale, community insights, known limitations.
+Keep under 400 words.
 ```
 
 ### 5. Synthesize & Report
