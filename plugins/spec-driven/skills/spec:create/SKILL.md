@@ -68,21 +68,23 @@ Create feature specs and resolve gray areas. Zero ceremony.
 
 ## Commands
 
-**Project-level:**
-| Trigger Pattern | Reference |
-|----------------|-----------|
-| Initialize project, setup project | [project-init.md](references/project-init.md) |
-| Create roadmap, plan features | [roadmap.md](references/roadmap.md) |
-| Map codebase, analyze existing code | [brownfield-mapping.md](references/brownfield-mapping.md) |
-| Document concerns, find tech debt, what's risky | [concerns.md](references/concerns.md) |
-| Record decision, log blocker, add todo | [state-management.md](references/state-management.md) |
-| Pause work, end session | [session-handoff.md](references/session-handoff.md) |
-| Resume work, continue | [session-handoff.md](references/session-handoff.md) |
+### Project-level
 
-**Feature-level:**
-| Trigger Pattern | Reference |
-|----------------|-----------|
-| Specify feature, define requirements | [specify.md](references/specify.md) |
+| Trigger Pattern                                 | Reference                                                 |
+| ----------------------------------------------- | --------------------------------------------------------- |
+| Initialize project, setup project               | [project-init.md](references/project-init.md)             |
+| Create roadmap, plan features                   | [roadmap.md](references/roadmap.md)                       |
+| Map codebase, analyze existing code             | [brownfield-mapping.md](references/brownfield-mapping.md) |
+| Document concerns, find tech debt, what's risky | [concerns.md](references/concerns.md)                     |
+| Record decision, log blocker, add todo          | [state-management.md](references/state-management.md)     |
+| Pause work, end session                         | [session-handoff.md](references/session-handoff.md)       |
+| Resume work, continue                           | [session-handoff.md](references/session-handoff.md)       |
+
+### Feature-level
+
+| Trigger Pattern                                        | Reference                           |
+| ------------------------------------------------------ | ----------------------------------- |
+| Specify feature, define requirements                   | [specify.md](references/specify.md) |
 | Discuss feature, how should this work, capture context | [discuss.md](references/discuss.md) |
 
 ## Discuss: When to Trigger
