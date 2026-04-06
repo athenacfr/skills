@@ -3,7 +3,7 @@ name: gh:fix-ci
 description: Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions. Uses `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treats external providers (for example Buildkite) as out of scope and reports only the details URL. Do NOT use for addressing PR review comments (use /gh:address-comments) or general CI outside GitHub Actions.
 license: MIT
 metadata:
-  author: Athena - github.com/athenacfr/skills
+  author: Athena Freitas - github.com/athenacfr
   version: 1.0.0
 ---
 
