@@ -11,13 +11,13 @@ metadata:
 
 Create feature specs and resolve gray areas. Zero ceremony.
 
-```
-  /spec:create  ─▸  /compact  ─▸  /spec:design  ─▸  /compact  ─▸  /spec:run
-  specify + discuss        architecture           tasks + implement
-  (this skill)             (if complex)            (always)
-```
-
-**After this skill completes, recommend the user runs `/compact` before moving to the next skill.**
+| Step | Skill          | Purpose           | When                  |
+| ---- | -------------- | ----------------- | --------------------- |
+| 1    | `/spec:create` | Specify + discuss | Always                |
+|      | `/compact`     | Free up context   | Always                |
+| 2    | `/spec:design` | Architecture      | Complex features only |
+|      | `/compact`     | Free up context   | If step 2 ran         |
+| 3    | `/spec:run`    | Tasks + implement | Always                |
 
 ## What This Skill Does
 
