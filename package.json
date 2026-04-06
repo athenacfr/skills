@@ -3,10 +3,12 @@
   "private": true,
   "scripts": {
     "fmt": "oxfmt --write .",
-    "fmt:check": "oxfmt --check ."
+    "fmt:check": "oxfmt --check .",
+    "validate": "bun .github/scripts/validate-marketplace.ts .claude-plugin/marketplace.json && bun .github/scripts/validate-frontmatter.ts && bun .github/scripts/check-marketplace-sorted.ts"
   },
   "devDependencies": {
     "lefthook": "latest",
-    "oxfmt": "latest"
+    "oxfmt": "latest",
+    "yaml": "^2.8.3"
   }
 }

@@ -23,7 +23,7 @@ If not authenticated, instruct the user to run `gh auth login`.
 Run the bundled script to collect all context in one call:
 
 ```
-python "<path-to-skill>/scripts/gather_pr_context.py"
+python "${CLAUDE_PLUGIN_ROOT}/scripts/gather_pr_context.py"
 ```
 
 Returns JSON with: `branch`, `upstream`, `base_branch`, `commit_log`, `diff_stat`, `uncommitted_changes`, and `pr_template` (if found).

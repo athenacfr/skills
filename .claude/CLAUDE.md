@@ -49,6 +49,7 @@ Examples of what should be a script:
 - Keep SKILL.md focused on the workflow and decision-making logic
 - Use `references/` for static context the LLM needs (coding principles, validation checklists)
 - Trigger descriptions should be specific — list exact phrases the user might say
+- Use `${CLAUDE_PLUGIN_ROOT}` for script paths (resolved automatically by Claude Code)
 
 ## Scripts
 

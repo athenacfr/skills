@@ -4,3 +4,5 @@ pre-commit:
       glob: "*.{json,md}"
       run: bunx oxfmt --write {staged_files}
       stage_fixed: true
+    - name: validate
+      run: bun run validate

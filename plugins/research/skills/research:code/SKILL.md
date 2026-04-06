@@ -36,7 +36,7 @@ Parse the user's request and identify:
 Generate **2-3 search queries** from different angles, plus **1-2 GitHub topic slugs** (kebab-case tags like `state-management`, `orm`, `cli`), then run the bundled script:
 
 ```
-python "<path-to-skill>/scripts/search_repos.py" "query 1" "query 2" --topic topic-slug-1 --topic topic-slug-2
+python "${CLAUDE_PLUGIN_ROOT}/scripts/search_repos.py" "query 1" "query 2" --topic topic-slug-1 --topic topic-slug-2
 ```
 
 Optional flags: `--limit 20`, `--language python`, `--min-stars 500`
@@ -50,7 +50,7 @@ Returns a JSON list with: `fullName`, `description`, `stargazersCount`, `updated
 The user is asking about a specific project. Resolve the repo:
 
 - If the user names it explicitly (e.g. "vscode", "next.js") → map to the GitHub URL (e.g. `microsoft/vscode`, `vercel/next.js`)
-- If ambiguous, run a quick search: `python "<path-to-skill>/scripts/search_repos.py" "project name" --min-stars 0` and pick the top match
+- If ambiguous, run a quick search: `python "${CLAUDE_PLUGIN_ROOT}/scripts/search_repos.py" "project name" --min-stars 0` and pick the top match
 - Skip straight to **Step 4: Explore**
 
 ### 3. Evaluate & Select (discovery path only)
