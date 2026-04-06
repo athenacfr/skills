@@ -1,52 +1,67 @@
 # Athena Skills Marketplace
 
-A curated collection of Claude Code skills and plugins.
+A single, all-in-one Claude Code plugin.
 
 ## Installation
 
-Install skills directly from this marketplace:
-
 ```bash
-/plugin install <plugin-name>@athenacfr/skills
+claude plugin marketplace add athenacfr/skills
+claude plugin install athena@athenacfr-skills
 ```
 
-Or browse available plugins:
+## What's Inside
 
-```bash
-/plugin > Discover
+### Skills (user-invokable via `/skill-name`)
+
+| Skill | Description |
+|-------|-------------|
+| `gh-address-comments` | Address review comments on GitHub PRs |
+| `gh-fix-ci` | Evidence-based CI failure diagnosis and fix |
+| `spec` | Spec-driven development with 4 adaptive phases |
+| `research` | Deep research using parallel agents |
+| `code-research` | Find, clone, and explore relevant repos |
+
+### Agents (spawned by Claude as needed)
+
+| Agent | Description |
+|-------|-------------|
+| `code-simplifier` | Refines code for clarity and maintainability |
+| `web-researcher` | Researches topics via web search |
+| `doc-analyst` | Analyzes documentation and specs |
+| `repo-scout` | Finds relevant GitHub repositories |
+| `repo-explorer` | Clones and analyzes repo architecture |
+
+### Scripts
+
+| Script | Used by |
+|--------|---------|
+| `fetch_comments.py` | gh-address-comments |
+| `inspect_pr_checks.py` | gh-fix-ci |
+
+## Structure
+
 ```
-
-## Available Plugins
-
-| Plugin | Description |
-|--------|-------------|
-| `code-simplifier` | Simplifies and refines code for clarity, consistency, and maintainability |
-| `gh-address-comments` | Address review comments on GitHub PRs using gh CLI |
-| `gh-fix-ci` | Debug and fix failing GitHub Actions PR checks |
-| `tlc-spec-driven` | Spec-driven development with 4 adaptive phases |
-
-## Plugin Structure
-
-Each plugin follows the standard Claude Code plugin structure:
-
+plugins/athena/
+├── .claude-plugin/plugin.json
+├── agents/
+│   ├── code-simplifier.md
+│   ├── doc-analyst.md
+│   ├── repo-explorer.md
+│   ├── repo-scout.md
+│   └── web-researcher.md
+├── skills/
+│   ├── code-research/SKILL.md
+│   ├── gh-address-comments/SKILL.md
+│   ├── gh-fix-ci/SKILL.md
+│   ├── research/SKILL.md
+│   └── spec/
+│       ├── SKILL.md
+│       └── references/ (16 files)
+└── scripts/
+    ├── fetch_comments.py
+    └── inspect_pr_checks.py
 ```
-plugin-name/
-├── .claude-plugin/
-│   └── plugin.json      # Plugin metadata (required)
-├── skills/              # Skill definitions (optional)
-│   └── skill-name/
-│       ├── SKILL.md     # Main skill definition
-│       └── references/  # Supporting docs (optional)
-├── agents/              # Agent definitions (optional)
-├── commands/            # Slash commands (optional)
-├── scripts/             # Helper scripts (optional)
-└── LICENSE
-```
-
-## Contributing
-
-Submit a PR to add a new plugin. Follow the structure above and include a LICENSE.
 
 ## License
 
-Individual plugins retain their own licenses. See each plugin directory.
+Individual components retain their original licenses.

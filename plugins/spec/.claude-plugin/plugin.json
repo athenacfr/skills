@@ -1,8 +1,0 @@
-{
-  "name": "tlc-spec-driven",
-  "description": "Spec-driven development with 4 adaptive phases: Specify, Design, Tasks, Execute. Auto-sizes depth by complexity with atomic commits and requirement traceability",
-  "author": {
-    "name": "Felipe Rodrigues",
-    "url": "https://github.com/felipfr"
-  }
-}

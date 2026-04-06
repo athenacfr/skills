@@ -5,34 +5,9 @@
   },
   "plugins": [
     {
-      "name": "code-simplifier",
-      "source": "./plugins/code-simplifier",
-      "description": "Simplifies and refines code for clarity, consistency, and maintainability"
-    },
-    {
-      "name": "gh-address-comments",
-      "source": "./plugins/gh-address-comments",
-      "description": "Address review comments on GitHub PRs using gh CLI"
-    },
-    {
-      "name": "gh-fix-ci",
-      "source": "./plugins/gh-fix-ci",
-      "description": "Evidence-based CI failure diagnosis and fix for GitHub Actions"
-    },
-    {
-      "name": "spec",
-      "source": "./plugins/spec",
-      "description": "Spec-driven development with 4 adaptive phases"
-    },
-    {
-      "name": "research",
-      "source": "./plugins/research",
-      "description": "Deep research using parallel agents"
-    },
-    {
-      "name": "code-research",
-      "source": "./plugins/code-research",
-      "description": "Find, clone, and explore relevant repos with parallel agents"
+      "name": "athena",
+      "source": "./plugins/athena",
+      "description": "All-in-one: code simplification, GitHub PR workflows, CI diagnosis, spec-driven dev, and parallel-agent research"
     }
   ]
 }
