@@ -1,8 +1,0 @@
-{
-  "name": "athena",
-  "description": "All-in-one skills plugin: code simplification, GitHub PR workflows, CI diagnosis, spec-driven development, and parallel-agent research",
-  "author": {
-    "name": "Athena",
-    "url": "https://github.com/athenacfr/skills"
-  }
-}

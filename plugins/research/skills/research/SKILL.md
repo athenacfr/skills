@@ -1,7 +1,10 @@
 ---
 name: research
 description: Deep research on any topic using parallel agents. Use when user says "research", "investigate", "deep dive into", "what do we know about", "explore the topic of", or asks a broad question requiring multi-source investigation. Do NOT use for code-specific research or finding repos (use code-research instead).
-version: 1.0.0
+license: MIT
+metadata:
+  author: Athena - github.com/athenacfr/skills
+  version: 1.0.0
 ---
 
 # Research

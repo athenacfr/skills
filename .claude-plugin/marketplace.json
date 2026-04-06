@@ -5,9 +5,19 @@
   },
   "plugins": [
     {
-      "name": "athena",
-      "source": "./plugins/athena",
-      "description": "All-in-one: code simplification, GitHub PR workflows, CI diagnosis, spec-driven dev, and parallel-agent research"
+      "name": "gh",
+      "source": "./plugins/gh",
+      "description": "GitHub PR workflows: address review comments, debug and fix failing CI checks"
+    },
+    {
+      "name": "research",
+      "source": "./plugins/research",
+      "description": "Deep research and code exploration using parallel agents"
+    },
+    {
+      "name": "spec-driven",
+      "source": "./plugins/spec-driven",
+      "description": "Spec-driven development: adaptive planning and disciplined execution"
     }
   ]
 }
