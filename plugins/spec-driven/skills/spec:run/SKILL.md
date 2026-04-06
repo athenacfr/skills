@@ -1,10 +1,10 @@
 ---
 name: spec:run
 description: Break specs into tasks and execute them. Creates atomic task breakdowns, implements ONE task at a time with verification, gate checks, and atomic git commits. Use when (1) Breaking features into tasks, (2) Implementing tasks from a spec (after /spec planning), (3) Quick ad-hoc tasks (bug fixes, config changes), (4) Validating and verifying work, (5) Running UAT walkthroughs. Triggers on "break into tasks", "create tasks", "implement", "execute", "build", "validate", "verify work", "UAT", "walk me through it", "quick fix", "quick task", "small change", "bug fix". Do NOT use for specifying requirements (use /spec:create) or architecture (use /spec:design).
-license: CC-BY-4.0
+license: MIT
 metadata:
-  author: Felipe Rodrigues - github.com/felipfr
-  version: 2.0.0
+  author: Athena - github.com/athenacfr/skills
+  version: 1.0.0
 ---
 
 # Spec: Run

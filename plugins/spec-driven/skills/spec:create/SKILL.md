@@ -1,10 +1,10 @@
 ---
 name: spec:create
 description: Create feature specs and resolve gray areas. Captures WHAT to build with testable, traceable requirements, then discusses ambiguous areas to lock implementation decisions. Produces spec.md and context.md. Use when (1) Starting new projects (initialize vision, goals, roadmap), (2) Working with existing codebases (map stack, architecture, conventions), (3) Specifying features (requirements, acceptance criteria), (4) Discussing gray areas and ambiguous behavior, (5) Tracking decisions/blockers/deferred ideas, (6) Pausing/resuming work. Triggers on "specify feature", "define requirements", "discuss feature", "how should this work", "initialize project", "map codebase", "pause work", "resume work". After completing, recommend user runs /compact then /spec:design (if complex) or /spec:run <feature>.
-license: CC-BY-4.0
+license: MIT
 metadata:
-  author: Felipe Rodrigues - github.com/felipfr
-  version: 2.0.0
+  author: Athena - github.com/athenacfr/skills
+  version: 1.0.0
 ---
 
 # Spec: Create

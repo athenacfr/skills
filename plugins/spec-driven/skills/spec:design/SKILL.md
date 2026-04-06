@@ -1,10 +1,10 @@
 ---
 name: spec:design
 description: Define architecture, components, interfaces, and data models for a feature. Identifies code reuse, integration points, and error handling. Produces design.md. Use when user says "design feature", "architecture", or for Large/Complex features that need architectural planning. Skip for straightforward changes with no new patterns. Do NOT use for requirements (use /spec:create) or implementation (use /spec:run). After completing, recommend user runs /compact then /spec:run <feature>.
-license: CC-BY-4.0
+license: MIT
 metadata:
-  author: Felipe Rodrigues - github.com/felipfr
-  version: 2.0.0
+  author: Athena - github.com/athenacfr/skills
+  version: 1.0.0
 ---
 
 # Spec: Design

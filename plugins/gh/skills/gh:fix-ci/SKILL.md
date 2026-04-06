@@ -4,7 +4,7 @@ description: Use when a user asks to debug or fix failing GitHub PR checks that 
 license: MIT
 metadata:
   author: Athena - github.com/athenacfr/skills
-  version: 2.0.0
+  version: 1.0.0
 ---
 
 # Fix CI
