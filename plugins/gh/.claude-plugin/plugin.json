@@ -1,6 +1,6 @@
 {
   "name": "gh",
-  "description": "GitHub PR workflows: address review comments, debug and fix failing CI checks",
+  "description": "GitHub PR workflows: open PRs, address review comments, debug and fix failing CI checks",
   "author": {
     "name": "Athena",
     "url": "https://github.com/athenacfr/skills"
