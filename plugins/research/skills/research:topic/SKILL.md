@@ -32,28 +32,14 @@ Launch **2-4 agents in parallel** using the Agent tool. Each agent gets a focuse
 
 | Agent | Focus | Subagent Type |
 |-------|-------|---------------|
-| Agent 1 | Core question — direct search for the primary answer | general-purpose |
-| Agent 2 | Context & background — history, ecosystem, alternatives | general-purpose |
-| Agent 3 | Technical details — specs, docs, APIs, implementation details | general-purpose |
-| Agent 4 | Community perspective — discussions, opinions, real-world experience | general-purpose |
+| Agent 1 | Core question — direct search for the primary answer | research:web-researcher |
+| Agent 2 | Context & background — history, ecosystem, alternatives | research:web-researcher |
+| Agent 3 | Technical details — specs, docs, APIs, implementation details | research:doc-analyst |
+| Agent 4 | Community perspective — discussions, opinions, real-world experience | research:web-researcher |
 
 **Each agent prompt MUST include:**
 - The specific sub-question to research
-- Instruction to use WebSearch and WebFetch
-- Instruction to return structured findings with sources
 - A reminder to be concise (under 500 words)
-
-**Example agent prompt:**
-```
-Research the following question using web search: [sub-question]
-
-Search the web for relevant information, fetch and read the top sources, and return a structured summary:
-- Key findings (with source URLs)
-- Important details
-- Any caveats or conflicting information
-
-Keep your response under 500 words. Focus on substance over volume.
-```
 
 ### 3. Synthesize Findings
 

@@ -69,34 +69,20 @@ Cloning and exploring these now...
 
 ### 4. Explore (Parallel)
 
-Launch **parallel agents** (one per selected repo) to clone and analyze:
+Launch **parallel agents** (one per selected repo, `subagent_type: research:repo-explorer`) to clone and analyze:
 
-**Each explorer agent prompt MUST include:**
-- The repo URL to clone
-- Instruction to clone with `git clone --depth 1` to `/tmp/research-repos/[owner]-[repo]`
+**Each agent prompt MUST include:**
+- The repo URL to clone to `/tmp/research-repos/[owner]-[repo]`
 - The specific aspects to investigate (architecture, patterns, how they handle X)
-- Instruction to read key files: README, entry points, config, core modules
 
-**Example explorer prompt:**
+**Example prompt:**
 ```
-Clone and analyze this repository: https://github.com/owner/repo
+Clone and analyze https://github.com/owner/repo to /tmp/research-repos/owner-repo
 
-1. Clone: `git clone --depth 1 https://github.com/owner/repo /tmp/research-repos/owner-repo`
-2. Map the directory structure (tree, depth 3)
-3. Identify the stack (check package.json, Cargo.toml, go.mod, etc.)
-4. Read the README and key entry points
-5. Find how they handle: [specific aspect user cares about]
-6. Note interesting architectural patterns
+Focus on: [specific aspect user cares about]
 
-Return a structured analysis:
-- Purpose and stack
-- Directory layout (annotated)
-- Architecture pattern
-- Key files and their roles
-- Notable patterns or techniques
-- The clone path for further exploration
-
-Keep under 600 words. Focus on architecture and patterns, not line-by-line code.
+Return: purpose, stack, directory layout, architecture pattern, key files, notable techniques.
+Keep under 600 words.
 ```
 
 ### 5. Synthesize & Report
