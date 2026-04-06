@@ -73,14 +73,12 @@ Cloning and exploring these now...
 
 ### 4. Explore (Parallel)
 
-For each selected repo, launch **two agents in parallel** — all repos' agents launch at the same time:
+Launch all agents in parallel:
 
-| Agent      | Type                      | Purpose                                                        |
-| ---------- | ------------------------- | -------------------------------------------------------------- |
-| Explorer   | `research:repo-explorer`  | Clone repo, analyze structure, architecture, key files         |
-| Researcher | `research:web-researcher` | Search web for docs, blog posts, discussions about the project |
+- **1 explorer per repo** (`research:repo-explorer`) — clone and analyze codebase
+- **1 web researcher for all repos** (`research:web-researcher`) — search for docs, blog posts, discussions
 
-**Explorer prompt:**
+**Explorer prompt** (one per repo):
 
 ```
 Clone and analyze https://github.com/owner/repo to /tmp/research-repos/owner-repo
@@ -91,15 +89,18 @@ Return: purpose, stack, directory layout, architecture pattern, key files, notab
 Keep under 600 words.
 ```
 
-**Researcher prompt:**
+**Web researcher prompt** (single agent, all repos):
 
 ```
-Research https://github.com/owner/repo — find official docs, blog posts, architecture discussions, and design decisions.
+Research these repositories:
+- owner/repo1
+- owner/repo2
+- owner/repo3
 
+For each, find: official docs, blog posts, architecture discussions, design decisions.
 Focus on: [specific aspect user cares about]
 
-Return: key documentation links, design rationale, community insights, known limitations.
-Keep under 400 words.
+Return findings grouped by repo. Keep under 300 words per repo.
 ```
 
 ### 5. Synthesize & Report
