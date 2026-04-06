@@ -1,0 +1,8 @@
+{
+  "name": "gh-fix-ci",
+  "description": "Debug and fix failing GitHub Actions PR checks by inspecting logs, summarizing failures, and implementing fixes",
+  "author": {
+    "name": "OpenAI Skills (adapted)",
+    "url": "https://github.com/tech-leads-club/agent-skills"
+  }
+}

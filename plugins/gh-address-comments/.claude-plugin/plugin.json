@@ -1,0 +1,8 @@
+{
+  "name": "gh-address-comments",
+  "description": "Address review and issue comments on the open GitHub PR for the current branch using gh CLI",
+  "author": {
+    "name": "OpenAI Skills (adapted)",
+    "url": "https://github.com/tech-leads-club/agent-skills"
+  }
+}

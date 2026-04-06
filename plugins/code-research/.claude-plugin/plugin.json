@@ -1,0 +1,8 @@
+{
+  "name": "code-research",
+  "description": "Code-focused research skill that spawns parallel agents to find, clone, and explore relevant repositories and codebases",
+  "author": {
+    "name": "Athena",
+    "url": "https://github.com/athenacfr/skills"
+  }
+}
