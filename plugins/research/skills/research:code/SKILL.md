@@ -73,21 +73,24 @@ Cloning and exploring these now...
 
 ### 4. Explore (Parallel)
 
-Launch **parallel agents** (one per selected repo, `subagent_type: research:repo-explorer`) to clone and analyze:
+Launch **parallel agents** (one per selected repo, `subagent_type: general-purpose`) to clone, analyze, and research:
 
 **Each agent prompt MUST include:**
 
 - The repo URL to clone to `/tmp/research-repos/[owner]-[repo]`
 - The specific aspects to investigate (architecture, patterns, how they handle X)
+- Instruction to search the web for docs, blog posts, or discussions about the project
 
 **Example prompt:**
 
 ```
 Clone and analyze https://github.com/owner/repo to /tmp/research-repos/owner-repo
 
-Focus on: [specific aspect user cares about]
+1. Clone and explore the codebase: structure, stack, architecture, key files
+2. Search the web for official docs, blog posts, or discussions about this project
+3. Focus on: [specific aspect user cares about]
 
-Return: purpose, stack, directory layout, architecture pattern, key files, notable techniques.
+Return: purpose, stack, directory layout, architecture pattern, key files, notable techniques, and any relevant context from docs/web.
 Keep under 600 words.
 ```
 
