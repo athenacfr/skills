@@ -1,6 +1,6 @@
 ---
-name: spec:create
-description: Create feature specs and resolve gray areas. Captures WHAT to build with testable, traceable requirements, then discusses ambiguous areas to lock implementation decisions. Produces spec.md and context.md. Use when (1) Starting new projects (initialize vision, goals, roadmap), (2) Working with existing codebases (map stack, architecture, conventions), (3) Specifying features (requirements, acceptance criteria), (4) Discussing gray areas and ambiguous behavior, (5) Tracking decisions/blockers/deferred ideas, (6) Pausing/resuming work. Triggers on "specify feature", "define requirements", "discuss feature", "how should this work", "initialize project", "map codebase", "pause work", "resume work". After completing, recommend user runs /compact then /spec:design (if complex) or /spec:run <feature>.
+name: spec-create
+description: Create feature specs and resolve gray areas. Captures WHAT to build with testable, traceable requirements, then discusses ambiguous areas to lock implementation decisions. Produces spec.md and context.md. Use when (1) Starting new projects (initialize vision, goals, roadmap), (2) Working with existing codebases (map stack, architecture, conventions), (3) Specifying features (requirements, acceptance criteria), (4) Discussing gray areas and ambiguous behavior, (5) Tracking decisions/blockers/deferred ideas, (6) Pausing/resuming work. Triggers on "specify feature", "define requirements", "discuss feature", "how should this work", "initialize project", "map codebase", "pause work", "resume work". After completing, recommend user runs /compact then /spec-design (if complex) or /spec-run <feature>.
 license: MIT
 metadata:
   author: Athena Freitas - github.com/athenacfr
@@ -13,11 +13,11 @@ Create feature specs and resolve gray areas. Zero ceremony.
 
 | Step | Skill          | Purpose           | When                  |
 | ---- | -------------- | ----------------- | --------------------- |
-| 1    | `/spec:create` | Specify + discuss | Always                |
+| 1    | `/spec-create` | Specify + discuss | Always                |
 |      | `/compact`     | Free up context   | Always                |
-| 2    | `/spec:design` | Architecture      | Complex features only |
+| 2    | `/spec-design` | Architecture      | Complex features only |
 |      | `/compact`     | Free up context   | If step 2 ran         |
-| 3    | `/spec:run`    | Tasks + implement | Always                |
+| 3    | `/spec-run`    | Tasks + implement | Always                |
 
 ## What This Skill Does
 
@@ -33,10 +33,10 @@ Create feature specs and resolve gray areas. Zero ceremony.
 
 | Scope       | What                     | This Skill                   | Next Step                          |
 | ----------- | ------------------------ | ---------------------------- | ---------------------------------- |
-| **Small**   | ≤3 files, one sentence   | Skip — go straight to        | `/spec:run` quick mode             |
-| **Medium**  | Clear feature, <10 tasks | Spec (brief), no discuss     | `/compact` → `/spec:run <feature>` |
-| **Large**   | Multi-component feature  | Full spec, discuss if needed | `/compact` → `/spec:design`        |
-| **Complex** | Ambiguity, new domain    | Full spec + discuss          | `/compact` → `/spec:design`        |
+| **Small**   | ≤3 files, one sentence   | Skip — go straight to        | `/spec-run` quick mode             |
+| **Medium**  | Clear feature, <10 tasks | Spec (brief), no discuss     | `/compact` → `/spec-run <feature>` |
+| **Large**   | Multi-component feature  | Full spec, discuss if needed | `/compact` → `/spec-design`        |
+| **Complex** | Ambiguity, new domain    | Full spec + discuss          | `/compact` → `/spec-design`        |
 
 ## Project Structure
 
@@ -58,8 +58,8 @@ Create feature specs and resolve gray areas. Zero ceremony.
 │   └── [feature]/
 │       ├── spec.md     # ← this skill
 │       ├── context.md  # ← this skill (when gray areas exist)
-│       ├── design.md   # /spec:design
-│       └── tasks.md    # /spec:run
+│       ├── design.md   # /spec-design
+│       └── tasks.md    # /spec-run
 └── quick/
     └── NNN-slug/
         ├── TASK.md
@@ -130,5 +130,5 @@ When the spec (and discuss, if needed) is complete, tell the user:
 
 > Spec complete. Run `/compact` to free up context, then:
 >
-> - **Complex/Large features:** `/spec:design <feature>` to plan architecture
-> - **Medium features:** `/spec:run <feature>` to break into tasks and implement
+> - **Complex/Large features:** `/spec-design <feature>` to plan architecture
+> - **Medium features:** `/spec-run <feature>` to break into tasks and implement

@@ -1,6 +1,6 @@
 ---
-name: research:topic
-description: Deep research on any topic using parallel agents. Use when user says "research", "investigate", "deep dive into", "what do we know about", "explore the topic of", or asks a broad question requiring multi-source investigation. Do NOT use for code-specific research or finding repos (use /research:code instead).
+name: research-topic
+description: Deep research on any topic using parallel agents. Use when user says "research", "investigate", "deep dive into", "what do we know about", "explore the topic of", or asks a broad question requiring multi-source investigation. Do NOT use for code-specific research or finding repos (use /research-code instead).
 license: MIT
 metadata:
   author: Athena Freitas - github.com/athenacfr
@@ -79,7 +79,7 @@ After presenting the report, offer:
 
 - "Want me to dig deeper into any of these findings?"
 - "Should I research [related topic] next?"
-- "Want me to switch to `/code-research` to find implementations?"
+- "Want me to switch to `/research-code` to find implementations?"
 
 ## Guidelines
 

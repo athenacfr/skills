@@ -9,21 +9,21 @@ plugins/
 ├── gh/                          # GitHub PR workflows
 │   ├── .claude-plugin/plugin.json
 │   ├── scripts/fetch_comments.py, inspect_pr_checks.py, gather_pr_context.py
-│   └── skills/gh:fix-ci/, gh:address-comments/, gh:open-pr/
+│   └── skills/gh-fix-ci/, gh-address-comments/, gh-open-pr/
 ├── research/                    # Topic & code research
 │   ├── .claude-plugin/plugin.json
 │   ├── scripts/search_repos.py
-│   └── skills/research:topic/, research:code/
+│   └── skills/research-topic/, research-code/
 └── spec-driven/                 # Spec-driven development
     ├── .claude-plugin/plugin.json
-    └── skills/spec:create/, spec:design/, spec:run/
+    └── skills/spec-create/, spec-design/, spec-run/
 ```
 
 Marketplace metadata: `.claude-plugin/marketplace.json` (root), per-plugin: `plugins/<name>/.claude-plugin/plugin.json`.
 
 ### Naming Conventions
 
-- Skills live in `plugins/<group>/skills/<group>:<name>/SKILL.md` (colon-separated `group:name`)
+- Skills live in `plugins/<group>/skills/<group>-<name>/SKILL.md` (dash-separated `group-name`)
 - Scripts live in `plugins/<group>/scripts/`
 - Reference docs live in `skills/<group>:<name>/references/*.md`
 

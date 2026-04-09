@@ -15,14 +15,14 @@ claude plugin install athena@athenacfr-skills
 
 | Skill                 | Description                                 |
 | --------------------- | ------------------------------------------- |
-| `gh:open-pr`          | Create a PR from the current branch         |
-| `gh:address-comments` | Address review comments on GitHub PRs       |
-| `gh:fix-ci`           | Evidence-based CI failure diagnosis and fix |
-| `research:topic`      | Deep research using parallel agents         |
-| `research:code`       | Find, clone, and explore relevant repos     |
-| `spec:create`         | Define requirements and resolve gray areas  |
-| `spec:design`         | Architecture and component design           |
-| `spec:run`            | Break into tasks and implement              |
+| `gh-open-pr`          | Create a PR from the current branch         |
+| `gh-address-comments` | Address review comments on GitHub PRs       |
+| `gh-fix-ci`           | Evidence-based CI failure diagnosis and fix |
+| `research-topic`      | Deep research using parallel agents         |
+| `research-code`       | Find, clone, and explore relevant repos     |
+| `spec-create`         | Define requirements and resolve gray areas  |
+| `spec-design`         | Architecture and component design           |
+| `spec-run`            | Break into tasks and implement              |
 
 ### Scripts
 
@@ -39,12 +39,12 @@ claude plugin install athena@athenacfr-skills
 plugins/
 ├── gh/
 │   ├── scripts/
-│   └── skills/gh:open-pr/, gh:address-comments/, gh:fix-ci/
+│   └── skills/gh-open-pr/, gh-address-comments/, gh-fix-ci/
 ├── research/
 │   ├── scripts/
-│   └── skills/research:topic/, research:code/
+│   └── skills/research-topic/, research-code/
 └── spec-driven/
-    └── skills/spec:create/, spec:design/, spec:run/
+    └── skills/spec-create/, spec-design/, spec-run/
 ```
 
 ## License

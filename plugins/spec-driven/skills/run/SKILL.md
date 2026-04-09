@@ -1,6 +1,6 @@
 ---
-name: spec:run
-description: Break specs into tasks and execute them. Creates atomic task breakdowns, implements ONE task at a time with verification, gate checks, and atomic git commits. Use when (1) Breaking features into tasks, (2) Implementing tasks from a spec (after /spec planning), (3) Quick ad-hoc tasks (bug fixes, config changes), (4) Validating and verifying work, (5) Running UAT walkthroughs. Triggers on "break into tasks", "create tasks", "implement", "execute", "build", "validate", "verify work", "UAT", "walk me through it", "quick fix", "quick task", "small change", "bug fix". Do NOT use for specifying requirements (use /spec:create) or architecture (use /spec:design).
+name: spec-run
+description: Break specs into tasks and execute them. Creates atomic task breakdowns, implements ONE task at a time with verification, gate checks, and atomic git commits. Use when (1) Breaking features into tasks, (2) Implementing tasks from a spec (after /spec planning), (3) Quick ad-hoc tasks (bug fixes, config changes), (4) Validating and verifying work, (5) Running UAT walkthroughs. Triggers on "break into tasks", "create tasks", "implement", "execute", "build", "validate", "verify work", "UAT", "walk me through it", "quick fix", "quick task", "small change", "bug fix". Do NOT use for specifying requirements (use /spec-create) or architecture (use /spec-design).
 license: MIT
 metadata:
   author: Athena Freitas - github.com/athenacfr
@@ -11,7 +11,7 @@ metadata:
 
 Break specs into tasks and execute them. One task at a time. Verify. Commit. Repeat.
 
-**Usage:** `/spec:run <feature>`
+**Usage:** `/spec-run <feature>`
 
 The argument is the feature name from `.specs/features/<feature>/`. The skill loads the spec, breaks it into tasks (if not already done), and implements them.
 
@@ -22,7 +22,7 @@ The argument is the feature name from `.specs/features/<feature>/`. The skill lo
   once          per task      per task       per task
 ```
 
-Use `/spec:create` first to define requirements, then `/spec:run <feature>` to break into tasks and build.
+Use `/spec-create` first to define requirements, then `/spec-run <feature>` to break into tasks and build.
 
 ## Quick Mode
 
