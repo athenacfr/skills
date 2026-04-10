@@ -75,6 +75,6 @@ Read through the full diff and provide:
 
 Based on the state of the branch:
 
-- If clean and ready: "Want me to open a PR? (/gh:open-pr)"
+- If clean and ready: "Want me to open a PR? (/open-pr)"
 - If uncommitted changes: "You have uncommitted changes — want to commit first?"
 - If issues found: "Want me to fix any of these before opening a PR?"
