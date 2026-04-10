@@ -15,6 +15,11 @@
       "description": "Deep research and code exploration using parallel agents"
     },
     {
+      "name": "skill-learner",
+      "source": "./plugins/skill-learner",
+      "description": "Background session learning: extracts repetitive patterns into reviewable skills"
+    },
+    {
       "name": "spec-driven",
       "source": "./plugins/spec-driven",
       "description": "Spec-driven development: adaptive planning and disciplined execution"
